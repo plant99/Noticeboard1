@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+		<input type="text" name="username" class="username">
+		<input type="password" name="password" class="password">
+		<input type="submit" value="Submit" id="submit">
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/jqueryCookie.js"></script>
+	<script type="text/javascript">
+		$('#submit').click(function(){
+			$.post('/login', { username: $('.username').val(), password : $('.password').val()}, 
+			    function(returnedData){
+			         localStorage.setItem('token', returnedData.token)
+			         console.log(localStorage.getItem('token'))
+			         $.cookie('token',returnedData.token, {expires: 7}, {domain: 'localhost:3000'})
+
+			         $.cookie('tatti','hago', {expires: 7}, {domain: 'localhost:3000'})
+
+			         location.href  = "/board"
+			});
+		})
+	</script>
+</body>
+</html>
