@@ -16,6 +16,7 @@ superSecret = require('./config/config').key ;
 //require routes
 var loginHandler = require('./routes/loginHandler.js')
 var signUpHandler = require('./routes/signUpHandler.js')
+var boardGenerator = require('./routes/boardGenerator')
 
 //require middlewares
 
@@ -42,6 +43,7 @@ app.get('/',function(req,res,next){
 })
 app.use('/login',loginHandler)
 app.use('/signup',signUpHandler)
+app.use('/board', boardGenerator)
 
 app.use(authenticate)
 app.use('/board',function(req,res,next){
