@@ -17,6 +17,7 @@ superSecret = require('./config/config').key ;
 var loginHandler = require('./routes/loginHandler.js')
 var signUpHandler = require('./routes/signUpHandler.js')
 var boardGenerator = require('./routes/boardGenerator')
+var getNotice = require('./routes/getNotice')
 
 //require middlewares
 
@@ -43,12 +44,11 @@ app.get('/',function(req,res,next){
 })
 app.use('/login',loginHandler)
 app.use('/signup',signUpHandler)
-app.use('/board', boardGenerator)
 
 app.use(authenticate)
-app.use('/board',function(req,res,next){
-	res.end('Chutiyapa will occur here')
-})
+
+app.use('/board', boardGenerator)
+app.use('/get_notice', getNotice)
 app.use(function(err, req, res, next) {
 	console.log(err)
   // set locals, only providing error in development
