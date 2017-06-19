@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Board</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+<body>
+	<ul class="list">
+		<% for(var i=0; i<notices.length;i++){%>
+		<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a></li>
+		<%}%>
+	</ul>
+</body>
+</html>
