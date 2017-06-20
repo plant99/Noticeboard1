@@ -20,9 +20,9 @@
 </head>
 <body>
 	<h1>Login</h1>
-	<label>Username:<input type="text" name="username"></label>
+	<label>Username:<input type="text" name="username" class="username"></label>
 	<br>
-	<label>Password:<input type="password" name="password"></label>
+	<label>Password:<input type="password" name="password" class="password"></label>
 	<br>
 	<input type="submit" value="Submit" id="submit">
 	
@@ -38,8 +38,7 @@
 			         $.cookie('token',returnedData.token, {expires: 7}, {domain: 'localhost:3000'})
 
 			         $.cookie('tatti','hago', {expires: 7}, {domain: 'localhost:3000'})
-
-			         location.href  = "/board"
+					 location.href  = "/board"
 			});
 		})
 	</script>
