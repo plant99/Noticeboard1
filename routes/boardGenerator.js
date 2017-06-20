@@ -6,8 +6,10 @@ router.get('/',function(req, res, next){
 		if(notices.length === 0){
 			res.json({success:false, message: 'No notice to display sorry'})
 		}else{
+			console.log(req.decoded._doc.type)
 			res.render('board',{
-				notices: notices
+				notices: notices,
+				type : req.decoded._doc.type
 			})
 		}
 	})
