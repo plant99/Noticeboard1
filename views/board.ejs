@@ -24,6 +24,9 @@
 			margin-top:20px;
 			margin-bottom:20px;
 		}
+		ul li:last-child{
+			border:none;
+		}
 		.board{
 			width:25%;
 			background-color: yellow;
@@ -88,10 +91,15 @@
 		<div class="content">
 			<ul class="list">
 				<% for(var i=0; i<notices.length;i++){%>
-				<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a> <span class="cross"><img src="images/glyphicons/png/glyphicons-208-remove.png"></span></li>
+				<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a><%if(type === 'teacher'){%>
+					<a href="/delete/<%= notices[i].header %>"><span class="cross" ><img src="images/glyphicons/png/glyphicons-208-remove.png"></span></a>
+					<%}%>
+				</li>
 				<%}%>
 			</ul>
-			<a href="/add_new"><div class="addNote">ADD NOTICE</div></a>
+			 <%if(type === 'teacher'){%>
+				<a href="/add_new"><div class="addNote">ADD NOTICE</div></a>
+			<%}%>
 		</div>
 	</div>
 </body>
