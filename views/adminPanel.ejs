@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Board</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<style type="text/css">
+		body{
+			margin:30px auto;
+			text-align: center ;
+			background-color: cyan ;
+		}
+		form{
+			margin-top: 30px ;
+			padding: 30px ;
+		}
+		input, select{
+			margin:20px;
+		}
+		ul li{
+			width: 80% ;
+			font-size: 20px ;
+			border-bottom:1px solid red;
+			padding: 15px ;
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+		ul li:last-child{
+			border:none;
+		}
+		.board{
+			width:25%;
+			background-color: yellow;
+			border-radius: 15px ;
+			margin-left:38.5%;
+		}
+		ul{
+			list-style-type: none ;
+		}
+		.cross{
+			float: right;
+			right: 20px ;
+		}
+		.cross:hover{
+			cursor: pointer; 
+		}
+		.cross img{
+			width:12px;
+			height: 12px ;
+		}
+		.cross img:hover{
+			text-shadow: 10px 10px;
+		}
+		ul li a{
+			padding-bottom: 20px ;
+			text-decoration: none; 
+		}
+		ul li a:hover{
+			padding-bottom: 20px ;
+			text-decoration: none; 
+			color: red ;
+		}
+		p{
+			font-size: 30px ;
+			border-bottom: 1px solid red ;
+		}
+		.not_to_be_underlined{
+			border-bottom: none ;
+		}
+		ul li{
+			text-align: left; 
+		}
+	</style>
+</head>
+<body>
+	<div class="board">
+		<div class="admins">
+			<p>Teachers:</p>
+			<ul>
+				<%for(var i=0;i<users.length;i++){%>
+				<%if(users[i].type === 'teacher'){%>
+				<li><%=users[i].username%><span class="cross"></span></li>
+				<%}%>
+				<%}%>
+			</ul>
+		</div>
+		<div class="students">
+			<p class="not_to_be_underlined">Students:</p>
+			<ul>
+				<%for(var i=0;i<users.length;i++){%>
+				<%if(users[i].type != 'teacher'){%>
+				<li><%=users[i].username%>
+					<a href="/make_admin_confirmation/<%=users[i].username%>">
+						<span class="cross"><img src="images/glyphicons/png/glyphicons-433-plus.png">
+						</span>
+					</a>
+				</li>
+				<%}%>
+				<%}%>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
