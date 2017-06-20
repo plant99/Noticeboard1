@@ -18,6 +18,7 @@ var loginHandler = require('./routes/loginHandler.js')
 var signUpHandler = require('./routes/signUpHandler.js')
 var boardGenerator = require('./routes/boardGenerator')
 var getNotice = require('./routes/getNotice')
+var saveNotice = require('./routes/saveNotice')
 
 //require middlewares
 
@@ -47,8 +48,12 @@ app.use('/signup',signUpHandler)
 
 app.use(authenticate)
 
+app.get('/add_new',function(req,res,next){
+	res.render('addNotice')
+})
 app.use('/board', boardGenerator)
 app.use('/get_notice', getNotice)
+app.use('/save_notice', saveNotice)
 app.use(function(err, req, res, next) {
 	console.log(err)
   // set locals, only providing error in development
