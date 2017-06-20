@@ -2,11 +2,36 @@
 <html>
 <head>
 	<title>Board</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<style type="text/css">
+		body{
+			margin:30px auto;
+			text-align: center ;
+			background-color: cyan ;
+		}
+		.board{
+			width:25%;
+			background-color: yellow;
+			border-radius: 15px ;
+			margin-left:38.5%;
+		}
+		.title{
+			font-size: 30px;
+			padding: 10px ;
+			border-bottom:1px solid orange;
+		}
+		.content{
+			font-size: 20px;
+			margin: 30px ;
+			padding-bottom: 30px ;
+		}
+
+	</style>
 </head>
 <body>
-	<h1><%=notice.header%></h1>
-	<p><%=notice.content%></p>
+	<div class="board">
+		<div class="title"><%= notice.header%></div>
+		<div class="content"><%= notice.content%></div>
+	</div>
 </body>
 </html>
