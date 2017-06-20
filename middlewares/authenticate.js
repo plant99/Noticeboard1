@@ -9,7 +9,8 @@ module.exports = function(req,res,next){
 			if(err){
 				return res.json({ success: false, message: 'Failed to authenticate token.' });
 			}
-			console.log(decoded) ;
+			req.decoded = decoded ;
+			console.log(decoded)
 			next() ;
 		})
 	}else{
