@@ -35,10 +35,9 @@
 			    function(returnedData){
 			         localStorage.setItem('token', returnedData.token)
 			         console.log(localStorage.getItem('token'))
-			         $.cookie('token',returnedData.token, {expires: 7}, {domain: 'localhost:3000'})
-
-			         $.cookie('tatti','hago', {expires: 7}, {domain: 'localhost:3000'})
-					 location.href  = "/board"
+			         $.cookie('token',returnedData.token, {expires: 1}, {domain: 'localhost:3000'})
+			         console.log(returnedData)
+					location.href  = "/board"
 			});
 		})
 	</script>
