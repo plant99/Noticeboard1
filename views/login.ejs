@@ -2,13 +2,31 @@
 <html>
 <head>
 	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<style type="text/css">
+		body{
+			margin:30px auto;
+			text-align: center ;
+			background-color: cyan ;
+		}
+		form{
+			margin-top: 30px ;
+			padding: 30px ;
+		}
+		input, select{
+			margin:20px;
+		}
+	</style>
 </head>
 <body>
-		<input type="text" name="username" class="username">
-		<input type="password" name="password" class="password">
-		<input type="submit" value="Submit" id="submit">
+	<h1>Login</h1>
+	<label>Username:<input type="text" name="username"></label>
+	<br>
+	<label>Password:<input type="password" name="password"></label>
+	<br>
+	<input type="submit" value="Submit" id="submit">
+	
+
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript" src="javascripts/jqueryCookie.js"></script>
 	<script type="text/javascript">
