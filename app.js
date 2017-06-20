@@ -19,6 +19,7 @@ var signUpHandler = require('./routes/signUpHandler.js')
 var boardGenerator = require('./routes/boardGenerator')
 var getNotice = require('./routes/getNotice')
 var saveNotice = require('./routes/saveNotice')
+var deleteHandler = require('./routes/deleteHandler')
 
 //require middlewares
 
@@ -54,6 +55,10 @@ app.get('/add_new',function(req,res,next){
 app.use('/board', boardGenerator)
 app.use('/get_notice', getNotice)
 app.use('/save_notice', saveNotice)
+app.use('/delete/:header',function(req, res, next){
+  res.render('deletePage',{header: req.params.header})
+})
+app.use('/deleteItem',deleteHandler)
 app.use(function(err, req, res, next) {
 	console.log(err)
   // set locals, only providing error in development
