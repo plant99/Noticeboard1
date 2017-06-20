@@ -56,7 +56,11 @@ app.use('/board', boardGenerator)
 app.use('/get_notice', getNotice)
 app.use('/save_notice', saveNotice)
 app.use('/delete/:header',function(req, res, next){
-  res.render('deletePage',{header: req.params.header})
+  if(req.decoded._doc.type === 'teacher'){
+    res.render('deletePage',{header: req.params.header})
+  }else{
+    //error page with a message
+  }
 })
 app.use('/deleteItem',deleteHandler)
 app.use(function(err, req, res, next) {
