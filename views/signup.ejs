@@ -24,7 +24,7 @@
 </head>
 <body>
 	<h1>SignUp to use NoticeBoard</h1>
-	<form method="post" action="/signup" >
+	<form method="post" action="/signup" onsubmit="return validateForm();">
 		<label>Username:<input type="text" name="username"></label>
 		<br>
 		<label>Password:<input type="password" name="password"></label>
@@ -38,5 +38,11 @@
 		<br>
 		<input type="submit" value="Submit">
 	</form>
+	<script type="text/javascript">
+		function validateForm(){
+			if( (document.forms[0]['username'] != "") && (document.forms[0]['password']) )
+				return true ;
+		}
+	</script>
 </body>
 </html>
