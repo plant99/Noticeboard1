@@ -7,7 +7,9 @@ router.get('/',function(req, res, next){
 			res.render('adminPanel',{users: users})
 		})
 	}else{
-		res.json({success:false})
+		res.render('error', {
+			message: 'Looks like, you dont have enough permission'
+		})
 	}
 })
 
