@@ -137,7 +137,7 @@
 			$.post('/make_cr/'+$('.username').val() , function(response){
 				if(response.success){
 					var username = $('.username').val()
-					$('.board').append('<div class="crList"><p>Class Representative</p><ul><li>'+username+'<a href="remove_cr/'+username+'"><span class="remove gly"><img src="/images/glyphicons/png/glyphicons-198-remove-circle.png"></span></a></li></ul></div>')
+					$('.board').append('<div class="crList"><p>Class Representative</p><ul><li>'+username+'<a href="remove_cr/'+username+'"><span class="remove gly"><img src="/images/glyphicons/png/glyphicons-198-remove-circle.png"></span></a></li></ul></div> <div class="dummy"></div>')
 
 					$('.cr').remove();
 				}else{
