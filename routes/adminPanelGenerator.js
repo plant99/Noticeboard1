@@ -4,7 +4,11 @@ var router = express.Router() ;
 router.get('/',function(req, res, next){
 	if(req.decoded._doc.type === 'teacher'){
 		User.find({},function(err, users){
-			res.render('adminPanel',{users: users})
+
+			User.findOne({type:'cr'},function(err, cr){
+				res.render('adminPanel',{users: users, cr: cr})	
+			})
+			
 		})
 	}else{
 		res.render('error', {
