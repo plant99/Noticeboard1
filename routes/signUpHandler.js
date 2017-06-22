@@ -9,7 +9,7 @@ router.post('/',function(req,res,next){
 			console.log(user)
 			res.json({success: false, message: 'user exists, please login'})
 		}else{
-			var user = User({username: req.body.username, password: req.body.password, type: req.body.type})
+			var user = User({username: req.body.username, password: req.body.password, type: 'student'})
 			user.save(function(err,user){
 				console.log(user)
 			}) ;
