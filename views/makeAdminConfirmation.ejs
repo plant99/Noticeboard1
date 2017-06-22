@@ -69,14 +69,14 @@
 			var url = '/makeAdmin/'+document.querySelector('.name').innerHTML ;
 			$.post(url,{},function(response){
 				if(response.success){
-					location.href = '/board'
+					location.href = '/admin_panel'
 				}else{
 					alert('Sorry, you dont have permission')
 				}
 			})
 		})
 		$('.no').click(function(){
-			location.href='/board'
+			location.href='/admin_panel'
 		})
 	</script>
 </body>
