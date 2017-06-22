@@ -18,6 +18,6 @@ module.exports = function(req,res,next){
 			next() ;
 		})
 	}else{
-		res.end('No permission, sorry')
+		res.redirect('/login')
 	}
 }
