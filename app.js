@@ -62,6 +62,7 @@ app.use('/delete/:header',function(req, res, next){
     res.render('deletePage',{header: req.params.header})
   }else{
     //error page with a message
+    res.render('error', {message: 'Looks like you don\'t have enough permission'})
   }
 })
 app.use('/admin_panel',adminPanelGenerator)
@@ -71,6 +72,7 @@ app.use('/make_admin_confirmation/:username',function(req, res, next){
     res.render('makeAdminConfirmation',{username: req.params.username})
   }else{
     //error page with a message
+        res.render('error', {message: 'Looks like you don\'t have enough permission'})
   }
 })
 app.use('/makeAdmin',makeAdmin)
@@ -87,4 +89,7 @@ app.use(function(err, req, res, next) {
   res.end('error');
 });
 
+app.use(function(req,res){
+  res.render('error', {message: ''})
+})
 app.listen(3000)
