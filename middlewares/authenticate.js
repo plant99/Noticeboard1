@@ -7,7 +7,9 @@ module.exports = function(req,res,next){
 	if(token){
 		jwt.verify(token, superSecret, function(err, decoded){
 			if(err){
-				return res.json({ success: false, message: 'Failed to authenticate token.' });
+				res.render('error', {
+					message: 'Login wasn\'t a success, try again'
+				})
 			}
 			req.decoded = decoded ;
 			console.log(decoded)
