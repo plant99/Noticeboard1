@@ -2,17 +2,21 @@ var express = require('express')
 var router = express.Router() ;
 
 router.get('/',function(req, res, next){
-	Notice.find({},function(err, notices){
-		if(notices.length === 0){
-			res.json({success:false, message: 'No notice to display sorry'})
-		}else{
-			console.log(req.decoded._doc.type)
-			res.render('board',{
-				notices: notices,
-				type : req.decoded._doc.type
-			})
-		}
-	})
+	if(req.decoded){
+		Notice.find({},function(err, notices){
+			if(notices.length === 0){
+				res.json({success:false, message: 'No notice to display sorry'})
+			}else{
+				console.log(req.decoded._doc.type)
+				res.render('board',{
+					notices: notices,
+					type : req.decoded._doc.type
+				})
+			}
+		})
+	}else{
+		res.render('error')
+	}
 })
 
 router.get('/view_notice/:headerName',function(req, res, next){
