@@ -7,7 +7,7 @@ router.post('/',function(req,res,next){
 	User.find({username:req.body.username},function(err, user){
 		if(user.length){
 			console.log(user)
-			res.json({success: false, message: 'user exists, please login'})
+			res.render('signup',{message: 'user exists, please login'})
 		}else{
 			var user = User({username: req.body.username, password: req.body.password, type: 'student'})
 			user.save(function(err,user){
