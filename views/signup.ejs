@@ -23,6 +23,10 @@
 	</style>
 </head>
 <body>
+	<%if(message){%>
+
+	<div class="notificationBox"><p>User with the same username exists, you might want to <a href="/login">login</a></p></div>
+	<%}%>
 	<h1>SignUp to use NoticeBoard</h1>
 	<form method="post" action="/signup" onsubmit="return validateForm();">
 		<label>Username:<input type="text" name="username"></label>
@@ -40,11 +44,22 @@
 		<br>
 		<input type="submit" value="Submit">
 	</form>
+	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript">
 		function validateForm(){
 			if( (document.forms[0]['username'] != "") && (document.forms[0]['password']) )
 				return true ;
 		}
+		function notify(text){
+			var p = document.createElement('p') ;
+			p.innerHTML = text ;
+			p.setAttribute('class', 'notification') ;
+			console.log(p)
+			document.querySelector('.notificationBox').appendChild(p) ;
+		}
+		setTimeout(function(){
+			$('.notificationBox').remove()
+		}, 5000)
 	</script>
 </body>
 </html>
