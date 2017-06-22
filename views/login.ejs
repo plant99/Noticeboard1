@@ -16,9 +16,17 @@
 		input, select{
 			margin:20px;
 		}
+		.notification{
+			border-radius: 10px ;
+			padding:20px ;
+			background-color: yellow ;
+			color: red ;
+			font-size: 20px ;
+		}
 	</style>
 </head>
 <body>
+	<div class="notificationBox"></div>
 	<h1>Login</h1>
 	<label>Username:<input type="text" name="username" class="username"></label>
 	<br>
@@ -31,15 +39,30 @@
 	<script type="text/javascript" src="javascripts/jqueryCookie.js"></script>
 	<script type="text/javascript">
 		$('#submit').click(function(){
-			$.post('/login', { username: $('.username').val(), password : $('.password').val()}, 
+			if(($('.username').val()!="") && ($('.password').val()!="")){
+				$.post('/login', { username: $('.username').val(), password : $('.password').val()}, 
 			    function(returnedData){
-			         localStorage.setItem('token', returnedData.token)
-			         console.log(localStorage.getItem('token'))
-			         $.cookie('token',returnedData.token, {expires: 1}, {domain: 'localhost:3000'})
-			         console.log(returnedData)
-					location.href  = "/board"
-			});
+			         if(returnedData.token || returnedData.token!=undefined){
+			         	$.cookie('token',returnedData.token, {expires: 1}, {domain: 'localhost:3000'})
+			         	console.log(returnedData)
+						location.href  = "/board"
+			         }else{
+			         	notify(returnedData.message)
+			         	setTimeout(function(){
+			         		$('.notification').remove()
+			         	}, 4000)
+			         }
+				});
+			}
 		})
+
+		function notify(text){
+			var p = document.createElement('p') ;
+			p.innerHTML = text ;
+			p.setAttribute('class', 'notification') ;
+			console.log(p)
+			document.querySelector('.notificationBox').appendChild(p) ;
+		}
 	</script>
 </body>
 </html>
