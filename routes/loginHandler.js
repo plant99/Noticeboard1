@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router() ;
 var jwt = require('jsonwebtoken');
+var bcrypt = require('bcrypt') ;
+const saltRounds = 10;
 
 router.post('/',function(req,res,next){
 	console.log(req.cookies)
@@ -11,7 +13,32 @@ router.post('/',function(req,res,next){
 		if(!user){
 			res.json({ success: false, message: 'Authentication failed. User not found.' });
 		}else if(user){
-			if(user.password != req.body.password){
+			bcrypt.compare(req.body.password,user.password,function(err, result){
+				if(!result){
+					res.json({ success: false, message: 'Authentication failed. Wrong Password.' });	
+				}else{
+					var token = jwt.sign(user, superSecret);
+					res.json({
+			          success: true,
+			          message: 'Enjoy your token!',
+			          token: token
+			        });	
+			        res.end()
+				}
+			} )
+
+			
+			
+		}
+	})
+})
+
+router.get('/',function(req,res,next){
+	res.render('login') 
+})
+module.exports = router ;
+/*
+if(user.password != req.body.password){
 				res.json({ success: false, message: 'Authentication failed. Wrong Password.' });	
 			}else{
 				var token = jwt.sign(user, superSecret);
@@ -22,11 +49,4 @@ router.post('/',function(req,res,next){
 		        });	
 		        res.end()
 			}
-		}
-	})
-})
-
-router.get('/',function(req,res,next){
-	res.render('login') 
-})
-module.exports = router ;
+*/
