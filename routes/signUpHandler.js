@@ -6,6 +6,7 @@ router.post('/',function(req,res,next){
 	console.log(req.body.username)
 	User.find({username:req.body.username},function(err, user){
 		if(user.length){
+			console.log('Rendering with a message')
 			console.log(user)
 			res.render('signup',{message: 'user exists, please login'})
 		}else{
@@ -21,7 +22,7 @@ router.post('/',function(req,res,next){
 })
 
 router.get('/',function(req, res, next){
-	res.render('signup')
+	res.render('signup',{message:''})
 })
 
 module.exports = router ;
