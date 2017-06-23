@@ -3,6 +3,7 @@
 <head>
 	<title>Board</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style type="text/css">
 		body{
 			margin:30px auto;
@@ -16,7 +17,7 @@
 		input, select{
 			margin:20px;
 		}
-		ul li{
+		.list li{
 			width: 80% ;
 			font-size: 20px ;
 			border-bottom:1px solid red;
@@ -59,11 +60,11 @@
 		.cross img:hover{
 			text-shadow: 10px 10px;
 		}
-		ul li a{
+		.list li a{
 			padding-bottom: 20px ;
 			text-decoration: none; 
 		}
-		ul li a:hover{
+		.list li a:hover{
 			padding-bottom: 20px ;
 			text-decoration: none; 
 			color: red ;
@@ -90,6 +91,7 @@
 	</style>
 </head>
 <body>
+	<% include header.ejs %>
 	<div class="board">
 		<div class="title">NOTICE</div>
 		<div class="content">
