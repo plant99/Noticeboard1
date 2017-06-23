@@ -47,7 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 //Routes
 app.get('/',function(req,res,next){
 	console.log(25)
-	res.render('signup',{message:''})
+	res.render('login',{message:''})
 })
 app.use('/login',loginHandler)
 app.use('/signup',signUpHandler)
