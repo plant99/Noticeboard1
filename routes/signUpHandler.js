@@ -15,7 +15,7 @@ router.post('/',function(req,res,next){
 			const saltRounds = 10;
 			const myPlaintextPassword = req.body.password;
 			bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
-  				var user = User({username: req.body.username, password: hash, type: 'student'})
+  				var user = User({username: req.body.username, password: hash, type: 'student', moderated:false})
 				user.save(function(err,user){
 					console.log(user)
 				}) ;
