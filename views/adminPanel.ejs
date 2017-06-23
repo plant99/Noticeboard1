@@ -44,8 +44,8 @@
 			cursor: pointer; 
 		}
 		.gly img{
-			width:12px;
-			height: 12px ;
+			width: 20px ;
+			height: 20px ;
 		}
 		ul li a{
 			padding-bottom: 20px ;
@@ -95,9 +95,16 @@
 			<ul>
 				<%for(var i=0;i<users.length;i++){%>
 				<%if(users[i].type === 'teacher'){%>
-				<li><%=users[i].username%><span class="cross"></span></li>
+				<li>
+					<%=users[i].username%>
+					<%if(users[i].moderated=== true){%><span class="user_moderate gly"><img src="/images/glyphicons/png/glyphicons-525-user-alert.png"></span>
+					<%}else{%>
+						<a href="/moderation/apply/<%=users[i].username%>"><span class="user_moderate gly"><img src="/images/glyphicons/png/glyphicons-378-riflescope.png"></span></a>
+					<%}%>
+				</li>
 				<%}%>
 				<%}%>
+				<!-- glyphicons-378-riflescope -->
 			</ul>
 		</div>
 		<div class="students">
