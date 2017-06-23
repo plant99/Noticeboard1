@@ -33,10 +33,11 @@
 <body>
 	<%if(message){%>
 
-	<div class="notificationBox"><p class="notification">User with the same username exists, you might want to <a href="/login">login</a></p></div>
+	<div class="notificationBox"><p class="notification"><%=message%></p></div>
 	<%}%>
 	<h1>SignUp to use NoticeBoard</h1>
 	<form method="post" action="/signup" onsubmit="return validateForm();">
+		<p style="color:red;">*Every field is compulsory</p>
 		<label>Username:<input type="text" name="username"></label>
 		<br>
 		<label>Password:<input type="password" name="password"></label>
@@ -50,13 +51,20 @@
 		</label>
 		 -->
 		<br>
+		<p>Type the numbers shown in the picture, in the box below<br>(Don't use spaces)</p>
+		<img src="data:image/jpeg;base64,<%= valicode %>"/> <br>
+		
+		<input type="text" name="captchaResponse"><br>
 		<input type="submit" value="Submit">
 	</form>
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript">
 		function validateForm(){
-			if( (document.forms[0]['username'] != "") && (document.forms[0]['password']) )
+			if( (document.forms[0]['username'].value != "") && (document.forms[0]['password'].value) && (document.forms[0]['captchaResponse'].value) )
 				return true ;
+			else{
+				return false ;
+			}
 		}
 		function notify(text){
 			var p = document.createElement('p') ;
