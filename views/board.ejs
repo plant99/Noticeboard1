@@ -83,6 +83,10 @@
 			transition-duration: 0.5s ;
 			background-color: red ;
 		}
+		.viewRequests h2{
+			font-size: 20px;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -91,15 +95,34 @@
 		<div class="content">
 			<ul class="list">
 				<% for(var i=0; i<notices.length;i++){%>
-				<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a><%if(type === 'teacher'){%>
-					<a href="/delete/<%= notices[i].header %>"><span class="cross" ><img src="images/glyphicons/png/glyphicons-208-remove.png"></span></a>
+					<%if(notices[i].can_be_displayed){%>
+						<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a><%if(type === 'teacher'){%>
+						<a href="/delete/<%= notices[i].header %>"><span class="cross" ><img src="images/glyphicons/png/glyphicons-208-remove.png"></span></a>
 					<%}%>
 				</li>
+					<%}%>
 				<%}%>
 			</ul>
+
+			<%if(type === 'cr'){%>
+				<div class="viewRequests">
+					<h2 class="title">VIEW REQUESTS</h2>
+					<ul>
+						<% for(var i=0; i<notices.length;i++){%>
+						<%if(!notices[i].can_be_displayed){%>
+						<li><a href="board/view_notice/<%= notices[i].header%>"><%= notices[i].header%></a>
+						<a href="/moderation/approve/<%= notices[i].header %>"><span class="cross gly" ><img src="images/glyphicons/png/glyphicons-433-plus.png"></span></a>
+						<%}%>
+						<%}%>
+					</ul>
+				</div>
+			<%}%>
+
 			 <%if(type === 'teacher' || type=== 'cr'){%>
 				<a href="/add_new"><div class="addNote">ADD NOTICE</div></a>
 			<%}%>
+
+
 		</div>
 	</div>
 </body>
