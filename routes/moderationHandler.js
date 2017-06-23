@@ -19,6 +19,18 @@ router.post('/apply/:username',function(req, res, next){
 		})
 	})
 })
+router.get('/approve/:header',function(req, res){
+	Notice.findOne({header: req.params.header},function(err, notice){
+		notice.can_be_displayed = true ;
+		notice.save(function(err, notice){
+			if(err){
+				res.render('error', {message: 'The notice is already visible by audience'})
+			}else{
+				res.redirect('/board')
+			}
+		})
+	})
+})
 module.exports = router ;
 
 	
