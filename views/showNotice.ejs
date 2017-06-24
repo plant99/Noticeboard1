@@ -31,6 +31,9 @@
 <body>
 	<div class="board">
 		<div class="title"><%= notice.header%></div>
+		<%if(imageExists){%>
+		<img src="/noticeImage/<%=notice.header%>.png" width="90%" height="90%">
+		<%}%>
 		<div class="content"><%= notice.content%></div>
 	</div>
 </body>
