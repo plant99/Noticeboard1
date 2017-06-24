@@ -7,6 +7,7 @@ var cookieParser = require('cookie-parser')
 
 var app = express();
 
+var fileUpload = require('express-fileupload');
 //require controller
 var initDb = require('./config/mongoInit.js').initDb ;
 initDb() ;
@@ -33,7 +34,7 @@ var authenticate = require('./middlewares/authenticate')
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-
+app.use(fileUpload());
 
 app.use(logger('dev'));
 app.use(bodyParser.json());

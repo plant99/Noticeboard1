@@ -1,5 +1,6 @@
 var express = require('express') ;
 var router = express.Router() ;
+var fileUpload = require('express-fileupload');
 
 router.post('/',function(req, res, next){
 	console.log(req)
