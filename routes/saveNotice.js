@@ -7,10 +7,10 @@ router.post('/',function(req, res, next){
 	if(req.decoded._doc.type === 'teacher' || req.decoded._doc.type === 'cr'){
 		Notice.findOne({header: req.body.title}, function(err, noticeCheck){
 			if(noticeCheck){
+				console.log(noticeCheck)
 				res.render('addNotice', {message:'Notice with the same header exists.'})
 			}else{
 				var sampleFile = req.files.image;
-				console.log(sampleFile.mimetype)
 				if(req.decoded._doc.moderated === false){
 					var notice  = new Notice({header: req.body.title, content: req.body.content, can_be_displayed:true}) ;
 				}else if(req.decoded._doc.moderated === true){
@@ -25,10 +25,10 @@ router.post('/',function(req, res, next){
 
 				notice.save(function(err, notice1){
 					if(err){
-						res.json({success: false})
+						res.json({success:false})
 					}else{
 						console.log(notice1)
-						res.json({success:true})
+						res.render('addNotice',{message: 'Notice successfully saved!'})
 					}
 				})
 
