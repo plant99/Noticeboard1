@@ -2,21 +2,31 @@ input{
 	display: inline-block; 
 }
 .navbar{
+	position: relative;
 	top: 0px ;
-	background-color: rgba(0,200,50,0.3) ;
 }
 .listH li{
+	background-color: yellow ;
 	font-size: 30px ;
 	float: left ;
-	width: 25%;
-	padding:40px;
-	color: red ;
+	width: 15%;
+	padding:10px;
+	color: black ;
+	margin-left: 5%;
+	border-radius: 10px;
+}
+.listH li:first-child{
+	margin-left: 12%
 }
 .listH li a {
 	text-decoration: none ;
-	color: blue ;
+	color: red ;
 }
 .listH li a:hover{
-	color: yellow;
+	color: cyan;
 	transition-duration: 0.5s ;
+}
+body{
+	margin-top: 0px ;
+	padding-top: 0px ;
 }
