@@ -56,7 +56,7 @@ app.use('/signup',signUpHandler)
 app.use(authenticate)
 
 app.get('/add_new',function(req,res,next){
-	res.render('addNotice')
+	res.render('addNotice',{message:''})
 })
 app.use('/board', boardGenerator)
 app.use('/get_notice', getNotice)
