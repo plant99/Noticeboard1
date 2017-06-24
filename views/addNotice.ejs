@@ -27,7 +27,7 @@
 		.saveNote{
 			padding: 5px ;
 			border-radius: 5px ;
-			margin-left: 10% ;
+			margin-left: 5% ;
 			width: 80% ;
 			text-align: center;
 			font-size: 30px ;
@@ -55,32 +55,38 @@
 			border-radius: 10px;
 			font-size: 20px ;
 			border:none ;
+		}.upload{
+			margin:15% ;
+		}
+		button{
+			border: none ;
 		}
 	</style>
 </head>
 <body>
 	<div class="board">
-		<div class="title">
-			<label>Title<br><input type="text" name="title" class="titleValue"></label>
-		</div>
-		<div class="content">
-			<label>Content<br><textarea class="contentValue"></textarea></label>
-		</div>
-		<input type="file" name="image">
-
-		<div class="saveNote">SAVE</div>
+		<%if(message){%>
+		<p class="message"><%=message%></p>
+		<%}%>
+		<form action="/save_notice" method="post" enctype="multipart/form-data">
+			<div class="title">
+				<label>Title<br><input type="text" name="title" class="titleValue"></label>
+			</div>
+			<div class="content">
+				<label>Content<br><textarea class="contentValue" name="content"></textarea></label>
+			</div>
+			<input type="file" name="image" class="upload">
+			<button class="saveNote" type="submit">Save</button>
+		</form>
 	</div>
 
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript">
-		$('.saveNote').click(function(){
-			if(($('.titleValue').val()!= "") && ($('.contentValue').val()!="")){
-				$.post('/save_notice',{title:$('.titleValue').val(), content: $('.contentValue').val()},function(returnedData){
-					//pop up a notification that your note was saved
-					location.href = '/board'
-			})
-			}
-		})
+		if($('.message')){
+			setTimeout(function(){
+				$('.message').remove()
+			},3000)
+		}
 	</script>
 </body>
 </html>
