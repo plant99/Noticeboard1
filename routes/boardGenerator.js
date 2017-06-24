@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router() ;
+var fs = require('fs')
 
 router.get('/',function(req, res, next){
 	if(req.decoded){
@@ -27,8 +28,17 @@ router.get('/view_notice/:headerName',function(req, res, next){
 	console.log(req.params.headerName)
 	Notice.findOne({header: req.params.headerName},function(err, notice){
 		console.log(notice)
-		res.render('showNotice',{
-			notice:notice
+		fs.stat('/home/shivashis/Documents/lifeLine/WeDe/noticeboard/usersImage/'+notice.header+'.png', function(err, stats){
+			if(err){
+				console.log(err)
+				res.render('showNotice',{notice:notice, imageExists: false})
+			}else{
+				if(stats === undefined){
+					res.render('showNotice',{notice:notice, imageExists: false})
+				}else{
+					res.render('showNotice',{notice:notice, imageExists: true})
+				}
+			}
 		})
 	})
 })
