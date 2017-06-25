@@ -3,6 +3,7 @@
 <head>
 	<title>Add Notice</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<% include styles.ejs %>
 	<style type="text/css">
 		body{
 			margin:30px auto;
@@ -67,6 +68,7 @@
 	</style>
 </head>
 <body>
+	<% include header.ejs %>
 	<div class="board">
 		<%if(message){%>
 		<p class="message"><%=message%></p>
@@ -86,6 +88,9 @@
 	</div>
 
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="javascripts/jscookie.js"></script>
+	<script type="text/javascript" src="javascripts/jqueryCookie.js"></script>
+	<% include scripts.ejs %>
 	<script type="text/javascript">
 		if($('.message')){
 			setTimeout(function(){

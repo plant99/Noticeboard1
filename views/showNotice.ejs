@@ -3,6 +3,7 @@
 <head>
 	<title>Board</title>
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<% include styles.ejs %>
 	<style type="text/css">
 		body{
 			margin:30px auto;
@@ -43,6 +44,7 @@
 	</style>
 </head>
 <body>
+<% include header.ejs%>
 	<div class="board">
 		<div class="title"><%= notice.header%></div>
 		<%if(imageExists){%>
@@ -64,5 +66,6 @@
 		<div class="dummy"></div>
 		
 	</div>
+	<% include scripts.ejs %>
 </body>
 </html>
