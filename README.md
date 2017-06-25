@@ -1,6 +1,6 @@
 # Noticeboard
 
-An online noticeboard to be used for regulating announcements and aacademic materials for a class
+An online noticeboard to be used for regulating announcements and academic materials for a class
 
 ## Overview
 
@@ -125,7 +125,7 @@ A Javascript runtime for running our server code.
 	```
 
 3. **MongoDB**(The database)\
-	This process takes some time and configuration to be made so here are two detailed blogs about installation of `MongoDB`
+	This process requires some documented and comprehensive guide. Please refer to these blogs(preferably, the first one), for installation of `MongoDB`
 	- [MongoDB official website docs](https://docs.mongodb.com/master/tutorial/install-mongodb-on-ubuntu/)
 	
 	- [howtoforge](https://www.howtoforge.com/tutorial/install-mongodb-on-ubuntu-16.04/)
@@ -160,11 +160,21 @@ A Javascript runtime for running our server code.
 	```
 	sudo service mongod start
 	```
-3. Go to the directory and run the server using
+3. - Go to the directory and run the server using
+
 	```
 	nodejs app.js
 	```
 	in the `terminal`.
+   - (or) An efficient method to run Node JS servers is with [Nodemon](https://nodemon.io/)
+   
+	```
+	npm install -g nodemon
+	```
+	Now everytime a component of the server is changed, `Nodemon` restarts your server. To run a server with Nodemn instead 	of `nodejs app.js` type:
+	```
+	nodemon app.js
+	```
 
 
 ## Dependencies 
