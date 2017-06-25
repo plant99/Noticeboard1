@@ -15,7 +15,8 @@ router.post('/',function(req,res,next){
 		if(user.length){
 			console.log('Rendering with a message')
 			console.log(user)
-			res.render('signup',{message: 'User with the same username exists, you might want to login',valicode:''})
+			var valicode = new Buffer(captchaImg()).toString('base64')
+			res.render('signup',{message:'User with the same username exists, you might want to login',valicode:valicode})
 		}else{
 			var bcrypt = require('bcrypt');
 			const saltRounds = 10;
