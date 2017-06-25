@@ -1,0 +1,15 @@
+
+<script type="text/javascript" src="/javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/jqueryCookie.js"></script>
+<script type="text/javascript" src="/javascripts/jscookie.js"></script>
+
+<script type="text/javascript">
+
+	var logout = document.querySelector('.logout') ;
+	logout.onclick = function(){
+
+		Cookies.remove('token', {expires: 1}, {domain: 'localhost:3000'});
+		location.href='/login' ;
+	}
+</script>
+<style>
