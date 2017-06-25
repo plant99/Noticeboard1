@@ -28,7 +28,7 @@ router.get('/view_notice/:headerName',function(req, res, next){
 	console.log(req.params.headerName)
 	Notice.findOne({header: req.params.headerName},function(err, notice){
 		console.log(notice)
-		fs.stat('/home/shivashis/Documents/lifeLine/WeDe/noticeboard/usersImage/'+notice.header+'.png', function(err, stats){
+		fs.stat(__dirname+'/../usersImage/'+notice.header+'.png', function(err, stats){
 			if(err){
 				console.log(err)
 				res.render('showNotice',{notice:notice, imageExists: false})
