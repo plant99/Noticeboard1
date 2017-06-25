@@ -25,7 +25,21 @@
 			margin: 30px ;
 			padding-bottom: 30px ;
 		}
-
+		.links p{
+			font-size: 1.5vw ;
+		}
+		img{
+			margin-top:20px;
+			border-radius: 10px ;
+		}
+		.links ul{
+			text-align: left; 
+		}
+		.dummy{
+			margin-top: 30px ;
+			width: 10px ;
+			height: 5px;
+		}
 	</style>
 </head>
 <body>
@@ -35,6 +49,20 @@
 		<img src="/noticeImage/<%=notice.header%>.png" width="90%" height="90%">
 		<%}%>
 		<div class="content"><%= notice.content%></div>
+
+		
+		<div class="links">
+			<p>Footnotes and resource links</p>
+			<%if(notice.links.length){%>
+				<ul>
+					<%for(var i=0;i<notice.links.length;i++){%>
+						<li><a href="<%=notice.links[i]%>"><%=notice.links[i]%></a></li>
+					<%}%>
+				</ul>
+			<%}%>
+		</div>
+		<div class="dummy"></div>
+		
 	</div>
 </body>
 </html>
