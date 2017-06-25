@@ -4,7 +4,11 @@ An online noticeboard to be used for regulating announcements and academic mater
 
 ## Overview
 
-This project is made as a part of the induction procedure of Spider, the R&D club of NIT Trichy
+This project is made as a part of the induction procedure of Spider, the R&D club of NIT Trichy. A Noticeboard which only a registered user can use.
+
+- A normal user can only view notices
+- A Class Representative can view and add notices
+- A teacher(admin) can view and add notice, also can change user permission level. 
 
 **User access levels**
 
@@ -213,3 +217,6 @@ A Javascript runtime for running our server code.
 - [x] Add navigation menu to every layout
 - [ ] Verify file type before uploading to server
 - [ ] Make the layouts responsive
+
+## Demo Server
+A server for the above app is running live at [`this place`](http://139.59.255.96:3000)
