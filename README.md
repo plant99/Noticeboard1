@@ -200,6 +200,6 @@ A Javascript runtime for running our server code.
 
 ## Pending tasks(Top 3)
 
-- [ ] Add navigation menu to every layout
+- [x] Add navigation menu to every layout
 - [ ] Verify file type before uploading to server
 - [ ] Make the layouts responsive
