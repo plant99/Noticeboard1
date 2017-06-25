@@ -196,3 +196,10 @@ A Javascript runtime for running our server code.
 
 - [jQuery](http://api.jquery.com/) Library for javaScript
 - [jQuery-cookie](https://github.com/carhartl/jquery-cookie) Library to set, get, modify and delete cookies with jQuery.
+
+
+## Pending tasks(Top 3)
+
+- [ ] Add navigation menu to every layout
+- [ ] Verify file type before uploading to server
+- [ ] Make the layouts responsive
