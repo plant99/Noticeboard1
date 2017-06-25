@@ -46,13 +46,16 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 
 //Routes
-app.get('/',function(req,res,next){
-	console.log(25)
-	res.render('login',{message:''})
-})
 app.use('/login',loginHandler)
 app.use('/signup',signUpHandler)
 
+app.get('/',function(req,res,next){
+  if(req.cookies.token){
+    res.redirect('/board') ;
+  }else{
+    res.redirect('/login')
+  }
+})
 app.use(authenticate)
 
 app.get('/add_new',function(req,res,next){
