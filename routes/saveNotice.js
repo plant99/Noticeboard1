@@ -10,11 +10,15 @@ router.post('/',function(req, res, next){
 				console.log(noticeCheck)
 				res.render('addNotice', {message:'Notice with the same header exists.'})
 			}else{
-				var sampleFile = req.files.image;
+				var links,sampleFile = req.files.image;
+				links = [] ;
+				if(req.body.links){
+					links = req.body.links.split('\n') ;
+				}
 				if(req.decoded._doc.moderated === false){
-					var notice  = new Notice({header: req.body.title, content: req.body.content, can_be_displayed:true}) ;
+					var notice  = new Notice({header: req.body.title, content: req.body.content, can_be_displayed:true, links:links}) ;
 				}else if(req.decoded._doc.moderated === true){
-					var notice  = new Notice({header: req.body.title, content: req.body.content, can_be_displayed:false}) ;
+					var notice  = new Notice({header: req.body.title, content: req.body.content, can_be_displayed:false, links:links}) ;
 				}
 				if(sampleFile){
 					sampleFile.mv(__dirname+'/../usersImage/'+req.body.title+'.png', function(err) {
