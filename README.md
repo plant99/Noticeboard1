@@ -155,9 +155,14 @@ A Javascript runtime for running our server code.
 	```
 	git clone https://github.com/shivPadhi/Noticeboard.git
 	```
-2. Go to the directory and run the server using
+
+2. Make sure the Mongo DB server is running. Or type the following command
 	```
-	nodemon app.js
+	sudo service mongod start
+	```
+3. Go to the directory and run the server using
+	```
+	nodejs app.js
 	```
 	in the `terminal`.
 
