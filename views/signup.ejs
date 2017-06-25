@@ -28,6 +28,12 @@
 			color: red ;
 			font-size: 20px ;
 		}
+		p.notInTheForm{
+			color: red ;
+		}
+		.btn{
+			text-decoration: none ;
+		}
 	</style>
 </head>
 <body>
@@ -57,6 +63,7 @@
 		<input type="text" name="captchaResponse"><br>
 		<input type="submit" value="Submit">
 	</form>
+	<p class="notInTheForm">Existing users might want to <a href="/login" class="btn">LOGIN</a></p>
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
 	<script type="text/javascript">
 		function validateForm(){
