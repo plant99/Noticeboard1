@@ -88,6 +88,27 @@
 			font-size: 20px;
 			text-align: center;
 		}
+		.viewRequests ul li{
+			width: 80% ;
+			font-size: 20px ;
+			border-bottom:1px solid red;
+			padding: 15px ;
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+
+		.viewRequests ul li:last-child{
+			border:none;
+		}
+		.viewRequests li a{
+			padding-bottom: 20px ;
+			text-decoration: none; 
+		}
+		.viewRequests li a:hover{
+			padding-bottom: 20px ;
+			text-decoration: none; 
+			color: red ;
+		}
 	</style>
 </head>
 <body>
@@ -127,5 +148,6 @@
 
 		</div>
 	</div>
+	<% include scripts.ejs %>
 </body>
 </html>
