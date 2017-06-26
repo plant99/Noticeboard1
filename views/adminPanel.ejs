@@ -58,7 +58,7 @@
 			margin-top:20px;
 			margin-bottom:20px;
 		}
-		ul li:last-child{
+		list li:last-child{
 			border:none;
 		}
 		.board{
@@ -175,6 +175,7 @@
 		<div class="dummy"></div>
 	</div>
 	<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jscookie.js"></script>
 	<script type="text/javascript">
 		$('.submit').click(function(){
 			$.post('/make_cr/'+$('.username').val() , function(response){
@@ -189,6 +190,17 @@
 			})
 		})
 	</script>
-	<% include scripts.ejs %>
+
+
+
+<script type="text/javascript">
+
+	var logout = document.querySelector('.logout') ;
+	logout.onclick = function(){
+
+		Cookies.remove('token', {expires: 1}, {domain: 'localhost:3000'});
+		location.href='/login' ;
+	}
+</script>
 </body>
 </html>
